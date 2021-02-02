@@ -355,10 +355,25 @@ template {
 
 
 /* ========================My code starts here=========================== */
-body{
-  font-family: Arial, Helvetica, sans-serif;
+
+h4 {
+  display: inline;
+}
+p{
+  display: inline-block;
+  padding: 0;
+  margin-top: 0;
 }
 
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+/* main .grid-wrapper {
+  width: 85vw;
+  margin: 0 auto;
+} */
 .grid-wrapper {
   display: grid;
   grid-template-columns: 1fr;
@@ -370,10 +385,15 @@ body{
   border: 2px solid blue;
 } 
 
+.grid-wrapper .box-one,.box-two, .box-three, .box-four, .box-five {
+  width: 85vw;
+  margin: 0 auto;
+}
 .grid-wrapper .flex-one {
   display: flex;
   flex-direction: column;
- 
+ width: 85vw;
+ margin: 0 auto;
   
 }
 
@@ -381,60 +401,200 @@ body{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  
   border: 2px solid red;
   background-color: #dddddd;
 }
+.grid-wrapper .flex-one .header .expand >div{
+ border: 1px solid black;
+ padding: 1em;
+}
+.grid-wrapper .flex-one .header .expand {
+  display: none;
+  width: auto;
+  /* margin: 0 auto; */
+  justify-content: center;
+  align-items:center ;
+}
+
+.grid-wrapper .flex-one .banner-container {
+  background-color: cornflowerblue;
+  height: 10em;
+  color: #ffffff;
+  font-size: 2em;
+  display: none;
+}
+.grid-wrapper .flex-one .welcome-text {
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+
+@media only screen and (min-width: 40em){
+  .grid-wrapper .flex-one .banner-container{
+    display: inline-block;
+    text-align: center;
+    
+  }
+  .grid-wrapper .flex-one .header .expand {
+    display: flex;
+  }
+  .grid-wrapper .flex-one .header .hamburger{
+    display: none;
+  }
+}
+
 /* styling for grid and flex 1 one ends here */
 
 .grid-wrapper .flex-two {
   display: flex;
   flex-direction: column;
-
+  width: 85vw;
+  margin: 0 auto;
 }
 .grid-wrapper .flex-two .services {
   border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.grid-wrapper .flex-two .nested-grid-one .icon{
+height: 40px;
+width: 50px;
+background-color: yellowgreen;
+margin-right: 1em;
+padding: 1em;
+}
 .grid-wrapper .flex-two .nested-grid-one{
   display: grid;
-  grid-template-columns: 2fr 7fr;
+  grid-template-columns: 1fr ;
   grid-gap: 1em;
+  border:  2px solid yellowgreen;
 }
+.grid-wrapper .flex-two .nested-grid-one .services-one{
+  display: flex;
+  justify-content: space-around;
+}
+@media only screen and (min-width: 40em){
+  .grid-wrapper .flex-two .nested-grid-one{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+  }
+
+  .grid-wrapper .flex-two .nested-grid-one .services-one{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .grid-wrapper .flex-two .nested-grid-one .services-one .description {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    text-align: justify;
+  }
+  #our-services {
+    align-self: center;
+    margin-bottom: .5em;
+  }
+}
+
+@media only screen and (min-width: 64em){
+  .grid-wrapper .flex-two .nested-grid-one{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+  }
+
+
+}
+
 /* styling for grid and flex box 2 ends here */
 
-.grid-wrapper .flex-three .project-grid .sample{
-  background-color: rosybrown;
-  height: 50px;
-  width: 40px; 
-}
 .grid-wrapper .flex-three {
   display: flex;
   flex-direction: column;
+  width: 85vw;
+  margin: 0 auto;
+  background-color: darkslategray;
+}
+.grid-wrapper .flex-three .project-grid .sample{
+  background-color: rosybrown;
+  height: auto;
+  width: auto; 
+}
+
+.grid-wrapper .flex-three .project-grid .sample img {
+object-fit: contain;
+width: 100%;
+height: 100%;
 }
 
 .grid-wrapper .flex-three .recent-one{
   border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
 
 .grid-wrapper .flex-three .project-grid{
   display: grid;
   grid-gap: 1em;
+  align-items: center;
+  justify-items: center;
+}
+@media only screen and (min-width: 40em){
+  .grid-wrapper .flex-three .project-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-gap: 1em;
+    align-items: center;
+    justify-items: center;
+  }
+}
+@media only screen and (min-width: 64em) {
+  .grid-wrapper .flex-three .project-grid{
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+  }
+
 }
 /* styling for grid and flex box 3 ends here */
-
-
-.grid-wrapper .flex-four .project-grid .sample{
-  background-color: rosybrown;
-  height: 50px;
-  width: 40px; 
-}
 .grid-wrapper .flex-four {
   display: flex;
   flex-direction: column;
+  width: 85vw;
+  margin: 0 auto;
+  background-color: rgb(8, 112, 144);
 }
+.grid-wrapper .flex-four .project-grid{
+  align-items: center;
+  justify-items: center;
+}
+.grid-wrapper .flex-four .project-grid .sample img {
+  object-fit: contain;
+  width: 80%;
+  height: 80%;
+  }
+.grid-wrapper .flex-four .project-grid .sample{
+  background-color: rosybrown;
+  height: auto;
+  width: auto; 
+ 
+}
+
+
+
 
 .grid-wrapper .flex-four .latest-projects{
   border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .grid-wrapper .flex-four .project-grid{
@@ -442,40 +602,129 @@ body{
   grid-gap: 1em;
 }
 
-/* styling for grid and flex box 4 ends here */
+@media only screen and (min-width: 40em){
+  .grid-wrapper .flex-four .project-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-gap: 1em;
+    align-items: center;
+    justify-items: center;
+  }
+}
+@media only screen and (min-width:64em){
+  .grid-wrapper .flex-four .project-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-gap: 1em;
+    align-items: center;
+    justify-items: center;
+  }
+
+}
+/* styling for grid and flex box 4=================================== ends here */
 
 .grid-wrapper .flex-five {
 display:flex ;
 flex-direction: column;
+align-items: center;
+width: 85vw;
+margin: 0 auto;
+background-color: darkgrey;
+}
+.grid-wrapper .flex-five .things{
+  display: none;
+  background-color: darkorange;
+  width: 85vw;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+.grid-wrapper .flex-five .gui-elements {
+  display: none;
+  /* background-color: bisque; */
+  font-size: 1.5em;
+  width: 30vw;
+  margin: 0 auto;
+  color: #ffffff;
+  justify-content: space-around;
+}
+.grid-wrapper .flex-five .gui-elements > div{
+  background-color: brown;
+  width: auto;
+  padding:0 2em 0 2em;
+  margin: 1em;
 }
 
-.grid-wrapper .flex-five .about .avatar {
-  background-color: yellow;
-  height: 50px;
-  width: 50px;
-}
-
-.grid-wrapper .flex-five  .divider{
-height: .5em;
-width: 15em;
-background-color: tomato;
+@media only screen and (min-width: 40em){
+  .grid-wrapper .flex-five .things{
+    display: inline-block;
+  }
+  .grid-wrapper .flex-five .gui-elements{
+    display: flex;
+  } 
 }
 
 .grid-wrapper .flex-five .about{
   display: flex;
-  border: 2px solid red;
+  justify-content: center;
+  align-items: center;
 }
+.grid-wrapper .flex-five .about p {
+  width: 50%;
+  margin: 1em;
+}
+.grid-wrapper .flex-five .about .avatar {
+  background-color: rgb(255, 179, 0);
+  height: 100px;
+  width: 100px;
+  border-radius: 5em;
+  margin: 1em;
+}
+
+.grid-wrapper .flex-five  .divider{
+height: .1em;
+width: 75vw;
+background-color: tomato;
+margin: 1em 0 1em 0;
+}
+
+
+.grid-wrapper .flex-five .social-media{
+  display: flex;
+  justify-content: flex-end ;
+  margin-right: 1em;
+}
+
 .grid-wrapper .flex-five .social-media .social-buttons {
-padding:.5em;
+border: 1px solid black;
+height: 30px;
+width: 30px;
+padding: 1em;
 }
 
 .grid-wrapper .flex-five .recent-tweets{
   display: flex;
   flex-direction: column;
   border: 2px solid red;
+  justify-content: center;
+  align-items: center;
 }
-
+.grid-wrapper .flex-five .recent-tweets > div {
+  margin: 1em;
+}
 .grid-wrapper .flex-five .recent-tweets .nested-grid-two{
   display: grid;
   grid-template-columns: 1fr 2fr;
+}
+.grid-wrapper .flex-five .recent-tweets .nested-grid-two .tweet-icon {
+  background-color: coral;
+  margin-bottom: .5em;
+  padding: .5em;
+  height: 30px;
+  width: 30px;
+  border-radius: 5em;
+  /* text-align: center; */
+  /* align-self: center;
+ justify-self: center; */
 }
